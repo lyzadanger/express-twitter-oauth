@@ -37,9 +37,16 @@ app.get('/auth/twitter', passport.authenticate('twitter'));
 app.get('/auth/twitter/callback',
   passport.authenticate('twitter', { failureRedirect: '/login' }),
   function (req, res) {
-    res.send(req.user)
+    // you are here after approving twitter auth.  the user
+    // stored in the session is controlled by what you return
+    // on line 23
+    res.send(req.user);
   }
 );
 
+// you can visit this after auth to view the session
+app.get('/me', function (req, res) {
+  res.send(req.user);
+});
 
 module.exports = app;
