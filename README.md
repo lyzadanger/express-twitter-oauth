@@ -1,4 +1,4 @@
-# express twitter oauth
+# express twitter oauth client/server
 > the simplest thing that could possibly work
 
 ### Setup
